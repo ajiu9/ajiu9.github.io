@@ -26,7 +26,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/images/http-message.png">
 <meta property="og:image" content="http://yoursite.com/images/http-request.png">
-<meta property="og:updated_time" content="2018-09-25T09:14:22.840Z">
+<meta property="og:updated_time" content="2018-09-25T09:15:38.163Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="http协议类 | 江月夜">
 <meta name="twitter:description" content="http协议的主要特点 简单快速 ：HTTP使用统一资源标识符（Uniform Resource Identifiers, URI）来传输数据和建立连接，URL是一种特殊类型的URI。访问某个资源只要输入URI即可。 灵活：每个http协议中。有一个头部分，有个数据类型，通过一个http协议的就可以完成不同数据类型的传输。 无连接：连接一次就会断开，不会保持连接。 无状态：客户端和服务端通信，客户">
@@ -241,8 +241,17 @@ classes that you can use:
 </ul>
 <p><img src="/images/http-message.png" alt=""></p>
 <h5 id="请求报文格式"><a href="#请求报文格式" class="headerlink" title="请求报文格式"></a>请求报文格式</h5><p><img src="/images/http-request.png" alt=""></p>
-<h5 id="请求报文示例"><a href="#请求报文示例" class="headerlink" title="请求报文示例"></a>请求报文示例</h5><p>`<br>GET /build/music/ HTTP/1.1<br>Host: www.ajiu9.com<br>Connection: keep-alive<br>Cache-Control: max-age=0<br>Upgrade-Insecure-Requests: 1<br>User-Agent: Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36<br>Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,<em>/</em>;q=0.8<br>Accept-Encoding: gzip, deflate<br>Accept-Language: zh-CN,zh;q=0.9<br>If-None-Match: W/“5ba9f717-234”<br>If-Modified-Since: Tue, 25 Sep 2018 08:51:35 GMT</p>
-<p>`</p>
+<h5 id="请求报文示例"><a href="#请求报文示例" class="headerlink" title="请求报文示例"></a>请求报文示例</h5><p><code>GET /build/music/ HTTP/1.1
+Host: www.ajiu9.com
+Connection: keep-alive
+Cache-Control: max-age=0
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8
+Accept-Encoding: gzip, deflate
+Accept-Language: zh-CN,zh;q=0.9
+If-None-Match: W/&quot;5ba9f717-234&quot;
+If-Modified-Since: Tue, 25 Sep 2018 08:51:35 GMT</code></p>
 <ul>
 <li>第一部分：请求行，用来说明请求类型,要访问的资源以及所使用协议和版本。</li>
 <li>第二部分：求头部，紧接着请求行（即第一行）之后的部分，用来说明服务器要使用的附加信息。</li>
