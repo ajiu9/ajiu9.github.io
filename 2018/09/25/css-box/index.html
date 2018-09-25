@@ -26,7 +26,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/images/css-box_f.png">
 <meta property="og:image" content="http://yoursite.com/images/css-box_ie.png">
-<meta property="og:updated_time" content="2018-09-25T03:35:19.077Z">
+<meta property="og:updated_time" content="2018-09-25T04:01:56.393Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="css盒模型 | 江月夜">
 <meta name="twitter:description" content="css盒模型的基本概念盒模型由内向外由content,padding, border, margin组成。盒模型有两种：标准模型，IE模型。 标准模型和IE模型的区别这俩种盒模型的区别是计算宽度和高度的不同。标准模型的宽高只计算内容（content）,IE模型宽高计算为内容（content）+填充（padding）+边框（border）的总宽高。 如何设置这俩种盒模型1234/*标准模型*/box">
@@ -236,7 +236,9 @@ classes that you can use:
 <ul>
 <li>node.style.width/height<br>这种方式只能取到dom元素内联样式的宽和高，通过外联样式link引入和在style标签中设置的样式这两者都是获取不到node的宽和高的</li>
 <li><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Element/currentStyle" target="_blank" rel="noopener">node.currentStyle.width/height</a><br>这种方式是获取渲染后的结果，但只在旧版本的IE浏览器中支持，该特性是非标准的，尽量不要在生产环境中使用它。</li>
-<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Window/getComputedStyle" target="_blank" rel="noopener"> window.getComputerStyle(node).width/height</a><br>Window.getComputedStyle()方法返回一个对象，该对象在应用活动样式表并解析这些值可能包含的任何基本计算后报告元素的所有CSS属性的值。和上一种方式是相似的，但通用性更好。</li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Window/getComputedStyle" target="_blank" rel="noopener">window.getComputerStyle(node).width/height</a><br>Window.getComputedStyle()方法返回一个对象，该对象在应用活动样式表并解析这些值可能包含的任何基本计算后报告元素的所有CSS属性的值。和上一种方式是相似的，但通用性更好。</li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Element/getBoundingClientRect" target="_blank" rel="noopener">node.getBoundingClientRect().width/height</a><br>Element.getBoundingClientRect()方法返回元素的大小及其相对于视口的位置。包含边框(border)、内边距(padding)以及CSS设置的宽度(width)值</li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLElement/offsetWidth" target="_blank" rel="noopener">node.offsetWidth/offsetHeight</a><br>Element.getBoundingClientRect()方法返回元素的大小及其相对于视口的位置。<br>这种方式是测量包含元素的边框(border)、内边距(padding)、滚动条(scrollbar)（如果存在的话）、以及CSS设置的宽度(width)和高度（height）的值。</li>
 </ul>
 
   </section>
