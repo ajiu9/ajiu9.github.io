@@ -26,7 +26,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/images/http-message.png">
 <meta property="og:image" content="http://yoursite.com/images/http-request.png">
-<meta property="og:updated_time" content="2018-09-25T09:00:26.075Z">
+<meta property="og:updated_time" content="2018-09-25T09:10:49.472Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="http协议类 | 江月夜">
 <meta name="twitter:description" content="http协议的主要特点 简单快速 ：HTTP使用统一资源标识符（Uniform Resource Identifiers, URI）来传输数据和建立连接，URL是一种特殊类型的URI。访问某个资源只要输入URI即可。 灵活：每个http协议中。有一个头部分，有个数据类型，通过一个http协议的就可以完成不同数据类型的传输。 无连接：连接一次就会断开，不会保持连接。 无状态：客户端和服务端通信，客户">
@@ -241,7 +241,7 @@ classes that you can use:
 </ul>
 <p><img src="/images/http-message.png" alt=""></p>
 <h5 id="请求报文格式"><a href="#请求报文格式" class="headerlink" title="请求报文格式"></a>请求报文格式</h5><p><img src="/images/http-request.png" alt=""></p>
-<p><code>GET /build/music/ HTTP/1.1
+<h5 id="请求报文示例"><a href="#请求报文示例" class="headerlink" title="请求报文示例"></a>请求报文示例</h5><p><code>GET /build/music/ HTTP/1.1
 Host: www.ajiu9.com
 Connection: keep-alive
 Cache-Control: max-age=0
@@ -257,6 +257,14 @@ If-Modified-Since: Tue, 25 Sep 2018 08:51:35 GMT</code></p>
 <li>第二部分：求头部，紧接着请求行（即第一行）之后的部分，用来说明服务器要使用的附加信息。</li>
 <li>第三部分：空行，请求头部后面的空行是必须的。</li>
 <li>第四部分：请求数据也叫主体，可以添加任意的其他数据（这个例子的请求数据为空）。</li>
+</ul>
+<h5 id="响应报文示例"><a href="#响应报文示例" class="headerlink" title="响应报文示例"></a>响应报文示例</h5><p>`<br>HTTP/1.1 304 Not Modified<br>Date: Tue, 25 Sep 2018 08:53:14 GMT<br>Via: 1.1 varnish<br>Cache-Control: max-age=600<br>ETag: W/“5ba9f717-234”<br>Expires: Tue, 25 Sep 2018 09:03:04 GMT<br>Age: 10<br>Connection: keep-alive<br>X-Served-By: cache-tyo19932-TYO<br>X-Cache: HIT<br>X-Cache-Hits: 1<br>X-Timer: S1537865594.266742,VS0,VE0<br>Vary: Accept-Encoding<br>X-Fastly-Request-ID: d33e186dc5ff53c01d8128c32ff8a0f1092c9832</p>
+<p>&lt;!doctype html&gt;<html lang="en"><head></head><body></body></html><br>`</p>
+<ul>
+<li>第一部分：状态行，由HTTP协议版本号， 状态码， 状态消息 三部分组成。</li>
+<li>第二部分：消息报头，用来说明客户端要使用的一些附加信息</li>
+<li>第三部分：空行，消息报头后面的空行是必须的。</li>
+<li>第四部分：响应正文，服务器返回给客户端的文本信息。</li>
 </ul>
 
   </section>
