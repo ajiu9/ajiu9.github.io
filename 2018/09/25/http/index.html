@@ -26,7 +26,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/images/http-message.png">
 <meta property="og:image" content="http://yoursite.com/images/http-request.png">
-<meta property="og:updated_time" content="2018-09-25T09:44:04.354Z">
+<meta property="og:updated_time" content="2018-09-25T09:50:00.692Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="http协议类 | 江月夜">
 <meta name="twitter:description" content="http协议的主要特点 简单快速 ：HTTP使用统一资源标识符（Uniform Resource Identifiers, URI）来传输数据和建立连接，URL是一种特殊类型的URI。访问某个资源只要输入URI即可。 灵活：每个http协议中。有一个头部分，有个数据类型，通过一个http协议的就可以完成不同数据类型的传输。 无连接：连接一次就会断开，不会保持连接。 无状态：客户端和服务端通信，客户">
@@ -264,11 +264,11 @@ classes that you can use:
 </ul>
 <h4 id="get和post的区别"><a href="#get和post的区别" class="headerlink" title="get和post的区别"></a>get和post的区别</h4><ul>
 <li><code>get在浏览器回退是无害的，而post会再次提交请求</code></li>
-<li>get产生的URL地址可以被收藏，而get不可以</li>
 <li><code>get请求会被浏览器主动缓存，而post不会，除非手动设置</code></li>
 <li><code>get请求参数会被完整保留在浏览器的历史记录里，而post中的参数不会被保留</code></li>
 <li><code>get请求中传送的参数是有长度限制的（一般是2kb，不同浏览器不一样），post没有长度限制</code></li>
 <li><code>get参数通过URL传递，post放在Request body中</code></li>
+<li>get产生的URL地址可以被收藏，而get不可以</li>
 <li>get请求只能进行url编码，而post支持多种编码方式</li>
 <li>对参数的数据类型，get只接受ASCLL字符，而post没有限制</li>
 <li>get比post更不安全，因为参数直接暴露在URL上，所以不能用来传递敏感信息</li>
@@ -294,6 +294,18 @@ classes that you can use:
 <h4 id="持久连接"><a href="#持久连接" class="headerlink" title="持久连接"></a>持久连接</h4><p>HTTP协议采用“请求-应答”模式，当使用普通模式，即非Keep-Alive模式时，每个请求/应答客户和服务器都要新建一个连接，完成 之后立即断开连接（HTTP协议为无连接的协议）；<br>当使用Keep-Alive模式（又称持久连接、连接重用）时，Keep-Alive功能使客户端到服 务器端的连接持续有效，当出现对服务器的后继请求时，Keep-Alive功能避免了建立或者重新建立连接。</p>
 <p>http 1.0中默认是关闭的，需要在http头加入”Connection: Keep-Alive”，才能启用Keep-Alive；<br>http 1.1中默认启用Keep-Alive，如果加入”Connection: close “，才关闭。</p>
 <p>目前大部分浏览器都是用http1.1协议，也就是说默认都会发起Keep-Alive的连接请求了，所以是否能完成一个完整的Keep-Alive连接就看服务器设置情况。</p>
+<h4 id="管线化"><a href="#管线化" class="headerlink" title="管线化"></a>管线化</h4><ul>
+<li>1.在使用持久连接的情况下，某个连接上消息的传递类似于，请求一次响应一次并且不断开<br>请求1-&gt; 响应1-&gt;请求2-&gt;响应2-&gt;请求3-&gt;响应3</li>
+<li>2.管线化通道是持久建立的，把所有请求打包一次传输，所有响应打包一次传输<br>请求1-&gt;请求2-&gt;请求3-&gt;响应1-&gt;响应2-&gt;响应3</li>
+</ul>
+<h4 id="管线化特点"><a href="#管线化特点" class="headerlink" title="管线化特点"></a>管线化特点</h4><ul>
+<li>管线化机制通过持久连接完成，仅HTTP/1.1支持此技术</li>
+<li>只有get和head请求可以进行管线化，而post则有所限制</li>
+<li>初次创建连接是不应启动管线机制，因为对方(服务器)不一定支持HTTP/1.1版本的协议</li>
+<li>管线化不会影响响应到来的顺序，如上面的例子所示，响应返还的顺序并未改变</li>
+<li>HTTP/1.1要求服务器端支持管线化，但并不要求服务器端也对响应进行管线化处理，只是要求对于管线化的请求不失败即可</li>
+<li>由于上面提到的服务器端问题，开启管线化很可能并不会带来大幅度的性能提升，而且很多服务器端和代理程序对管线化的支持并不好，因此现代浏览器如Chrome和Firefox默认并未开启管线化支持</li>
+</ul>
 
   </section>
 
