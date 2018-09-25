@@ -26,7 +26,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/images/http-message.png">
 <meta property="og:image" content="http://yoursite.com/images/http-request.png">
-<meta property="og:updated_time" content="2018-09-25T09:18:45.835Z">
+<meta property="og:updated_time" content="2018-09-25T09:41:18.548Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="http协议类 | 江月夜">
 <meta name="twitter:description" content="http协议的主要特点 简单快速 ：HTTP使用统一资源标识符（Uniform Resource Identifiers, URI）来传输数据和建立连接，URL是一种特殊类型的URI。访问某个资源只要输入URI即可。 灵活：每个http协议中。有一个头部分，有个数据类型，通过一个http协议的就可以完成不同数据类型的传输。 无连接：连接一次就会断开，不会保持连接。 无状态：客户端和服务端通信，客户">
@@ -261,6 +261,35 @@ classes that you can use:
 <li>put ———— 更新资源</li>
 <li>delete ———— 删除资源</li>
 <li>head ———— 获得报文首部</li>
+</ul>
+<h4 id="get和post的区别"><a href="#get和post的区别" class="headerlink" title="get和post的区别"></a>get和post的区别</h4><ul>
+<li><code>get在浏览器回退是无害的，而post会再次提交请求</code></li>
+<li>get产生的URL地址可以被收藏，而get不可以</li>
+<li><code>get请求会被浏览器主动缓存，而post不会，除非手动设置</code></li>
+<li><code>get请求参数会被完整保留在浏览器的历史记录里，而post中的参数不会被保留</code></li>
+<li><code>get请求中传送的参数是有长度限制的（一般是2kb，不同浏览器不一样），post没有长度限制</code></li>
+<li><code>get参数通过URL传递，post放在Request body中</code></li>
+<li>get请求只能进行url编码，而post支持多种编码方式</li>
+<li>对参数的数据类型，get只接受ASCLL字符，而post没有限制</li>
+<li>get比post更不安全，因为参数直接暴露在URL上，所以不能用来传递敏感信息</li>
+</ul>
+<h4 id="http状态码"><a href="#http状态码" class="headerlink" title="http状态码"></a>http状态码</h4><ul>
+<li>1xx：指示信息 ——表示请求已接收，继续处理</li>
+<li>2xx：成功——表示请求已被成功接收</li>
+<li>3xx：重定向——要完成请求必须进行更进一步的操作</li>
+<li>4xx：客户端错误——请求有语法错误或请求无法实现</li>
+<li>5xx：服务端错误——服务器未能实现合法的请求</li>
+<li>200 OK：客户端请求成功</li>
+<li>206 Partial Content: 客户发送了一个带Range头的GET请求，服务器完成了它</li>
+<li>301 Move Parmanently：所请求的页面已经转移到新的url</li>
+<li>302 Found：所请求的页面已经临时转移至新的url</li>
+<li>304 Not Modified：客户端有缓冲的文档并发出了一个条件性的请求，服务器告诉客户，原来缓冲的文档还可以继续使用</li>
+<li>400 Bad Request：客户端请求有语法错误，不能被服务端所理解</li>
+<li>401 Unauthorized：请求未经授权,这个状态代码必须和WWW-Authenticate报头域一起使用</li>
+<li>403 Forboidden：对被请求页面的访问被禁止</li>
+<li>404 NOt Found：请求资源不存在</li>
+<li>500 Internal Server Error：服务器发送不可预期的错误原来缓冲文档还可以继续使用</li>
+<li>503 Server Unavailable：请求未完成，服务器临时过载或当机，一段时间后可能恢复正常</li>
 </ul>
 
   </section>
