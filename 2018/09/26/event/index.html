@@ -25,7 +25,7 @@
 <meta property="og:description" content="事件级别 DOM0 element.onclick = function(){} DOM2 element.addEventListener(&amp;#39;click&amp;#39;, function(){}, false) DOM3 element.addEventListener(&amp;#39;keyup&amp;#39;, function(){}, false)在DOM2事件后新增了UI事件、鼠标事件、键盘事">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/images/eventflow.ng">
-<meta property="og:updated_time" content="2018-09-26T07:14:37.758Z">
+<meta property="og:updated_time" content="2018-09-26T07:16:39.583Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="DOM事件 | 江月夜">
 <meta name="twitter:description" content="事件级别 DOM0 element.onclick = function(){} DOM2 element.addEventListener(&amp;#39;click&amp;#39;, function(){}, false) DOM3 element.addEventListener(&amp;#39;keyup&amp;#39;, function(){}, false)在DOM2事件后新增了UI事件、鼠标事件、键盘事">
@@ -259,7 +259,7 @@ classes that you can use:
 <li>“composed”，可选，Boolean类型，默认值为 false，指示事件是否会在影子DOM根节点之外触发侦听器。</li>
 </ul>
 </blockquote>
-
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建一个支持冒泡且不能被取消的attach事件</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> ev = <span class="keyword">new</span> Event(<span class="string">"attach"</span>, &#123;<span class="string">"bubbles"</span>:<span class="literal">true</span>, <span class="string">"cancelable"</span>:<span class="literal">false</span>&#125;);</span><br><span class="line"><span class="built_in">document</span>.dispatchEvent(ev);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 事件可以在任何元素触发，不仅仅是document</span></span><br><span class="line">myDiv.dispatchEvent(ev);</span><br></pre></td></tr></table></figure>
   </section>
 
   <section class="post-comments">
