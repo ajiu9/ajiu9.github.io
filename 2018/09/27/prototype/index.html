@@ -24,10 +24,12 @@
 <meta property="og:site_name" content="江月夜">
 <meta property="og:description" content="创建对象的几种方法123456789101112// 1.使用new Object()var o1 = new Object(&amp;#123;name: &apos;o1&apos;&amp;#125;);// 2.对象字面量 (这种方法其实就是第一种的简写)var o2 = &amp;#123;name: &apos;o2&apos;&amp;#125;;// 3.构造函数var A = function(name) &amp;#123;  this.name = na">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-09-27T10:22:31.270Z">
+<meta property="og:image" content="http://yoursite.com/images/proto.png">
+<meta property="og:updated_time" content="2018-09-28T02:21:06.880Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="原型链 | 江月夜">
 <meta name="twitter:description" content="创建对象的几种方法123456789101112// 1.使用new Object()var o1 = new Object(&amp;#123;name: &apos;o1&apos;&amp;#125;);// 2.对象字面量 (这种方法其实就是第一种的简写)var o2 = &amp;#123;name: &apos;o2&apos;&amp;#125;;// 3.构造函数var A = function(name) &amp;#123;  this.name = na">
+<meta name="twitter:image" content="http://yoursite.com/images/proto.png">
     
     
     
@@ -227,7 +229,10 @@ classes that you can use:
 
   <section id="post-content" class="article-content post">
     <h4 id="创建对象的几种方法"><a href="#创建对象的几种方法" class="headerlink" title="创建对象的几种方法"></a>创建对象的几种方法</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1.使用new Object()</span></span><br><span class="line"><span class="keyword">var</span> o1 = <span class="keyword">new</span> <span class="built_in">Object</span>(&#123;<span class="attr">name</span>: <span class="string">'o1'</span>&#125;);</span><br><span class="line"><span class="comment">// 2.对象字面量 (这种方法其实就是第一种的简写)</span></span><br><span class="line"><span class="keyword">var</span> o2 = &#123;<span class="attr">name</span>: <span class="string">'o2'</span>&#125;;</span><br><span class="line"><span class="comment">// 3.构造函数</span></span><br><span class="line"><span class="keyword">var</span> A = <span class="function"><span class="keyword">function</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.name = name;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> o3 = <span class="keyword">new</span> A(<span class="string">'o3'</span>);</span><br><span class="line"><span class="comment">// 4.Object.create()</span></span><br><span class="line"><span class="keyword">var</span> B = &#123;<span class="attr">name</span>: <span class="string">'o4'</span>&#125;;</span><br><span class="line"><span class="keyword">var</span> o4 = <span class="built_in">Object</span>.create(B);</span><br></pre></td></tr></table></figure>
-<h4 id="构造函数、原型、实例、原型链"><a href="#构造函数、原型、实例、原型链" class="headerlink" title="构造函数、原型、实例、原型链"></a>构造函数、原型、实例、原型链</h4>
+<h4 id="构造函数、原型、实例、原型链"><a href="#构造函数、原型、实例、原型链" class="headerlink" title="构造函数、原型、实例、原型链"></a>构造函数、原型、实例、原型链</h4><p>JavaScript是一门面向对象基于原型继承的语言,那么原型到底是怎么实现继承的？<br><img src="/images/proto.png" alt=""></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1.创建构造函数Animal</span></span><br><span class="line"><span class="keyword">var</span> Animal = <span class="function"><span class="keyword">function</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.name = name</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 2.实例化一个对象dog</span></span><br><span class="line"><span class="keyword">var</span> dog = <span class="keyword">new</span> Animal(<span class="string">'dog'</span>);</span><br></pre></td></tr></table></figure>
+<p>在这段代码中， <code>Animal</code>是构造函数，<code>dog</code>是通过<code>new</code>关键字实例化的一个对象<br>在这里，<code>new</code>关键字的作用是</p>
+
   </section>
 
   <section class="post-comments">
