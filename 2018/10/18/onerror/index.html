@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      前端错误监控 | 江月夜 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="江月夜">
+    
+    
+
+    <meta name="description" content="写在前面做好错误监控，将用户使用时的错误上报，可以帮助我们定位解决一些出现的问题。本次主要了解一下几个问题：前端错误的分类，每一种分类的错误捕获方式是什么，如何把这些错误上报？ 前端错误分类 即时运行错误：代码错误 资源加载错误 接口错误即时运行错误的捕获方式： try..catch window.onerror资源加">
+<meta name="keywords" content="错误监控">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端错误监控 | 江月夜">
+<meta property="og:url" content="http://yoursite.com/2018/10/18/onerror/index.html">
+<meta property="og:site_name" content="江月夜">
+<meta property="og:description" content="写在前面做好错误监控，将用户使用时的错误上报，可以帮助我们定位解决一些出现的问题。本次主要了解一下几个问题：前端错误的分类，每一种分类的错误捕获方式是什么，如何把这些错误上报？ 前端错误分类 即时运行错误：代码错误 资源加载错误 接口错误即时运行错误的捕获方式： try..catch window.onerror资源加载错误的捕获方式： object.onerror performance.get">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-10-18T10:13:31.553Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="前端错误监控 | 江月夜">
+<meta name="twitter:description" content="写在前面做好错误监控，将用户使用时的错误上报，可以帮助我们定位解决一些出现的问题。本次主要了解一下几个问题：前端错误的分类，每一种分类的错误捕获方式是什么，如何把这些错误上报？ 前端错误分类 即时运行错误：代码错误 资源加载错误 接口错误即时运行错误的捕获方式： try..catch window.onerror资源加载错误的捕获方式： object.onerror performance.get">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/favicon.png">
+    
+    <link rel="stylesheet" href="/css/uno.css">
+    <link rel="stylesheet" href="/css/highlight.css">
+    <link rel="stylesheet" href="/css/archive.css">
+    <link rel="stylesheet" href="/css/china-social-icon.css">
+
+</head>
+<body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+  
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">江月夜</a></h1>
+        <hr class="panel-cover__divider" />
+
+        
+        <p class="panel-cover__description">
+          腹有诗书气自华
+        </p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">首页</a></li>
+              
+                
+                <li class="navigation__item"><a href="/about" title="" class="">关于</a></li>
+              
+                
+                <li class="navigation__item"><a href="/archive" title="" class="">归档</a></li>
+              
+
+            </ul>
+          </nav>
+
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+<!-- add social info here -->
+
+
+
+<nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+
+    
+      <!-- Github -->
+      <li class="navigation__item">
+        <a href="https://github.com/ajiu9" title="">
+          <i class='icon icon-social-github'></i>
+          <span class="label">GitHub</span>
+        </a>
+      </li>
+    
+
+    <!-- China social icon -->
+    <!--
+    
+      <li class="navigation__item">
+        <a href="" title="">
+          <i class='icon cs-icon-douban'></i>
+          <span class="label">Douban</span>
+        </a>
+      </li>
+
+      <li class="navigation__item">
+        <a href="" title="">
+          <i class='icon cs-icon-weibo'></i>
+          <span class="label">Weibo</span>
+        </a>
+      </li>
+
+    -->
+
+
+
+  </ul>
+</nav>
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    
+    <h1 class="post-title">前端错误监控</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2018-10-18" class="post-meta__date date">2018-10-18</time> 
+
+      <span class="post-meta__tags tags">
+
+          
+
+          
+             &#8226; 标签:
+            <font class="tags">
+              <a class="tags-link" href="/tags/错误监控/">错误监控</a>
+            </font>
+          
+
+      </span>
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <h4 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h4><p>做好错误监控，将用户使用时的错误上报，可以帮助我们定位解决一些出现的问题。本次主要了解一下几个问题：前端错误的分类，每一种分类的错误捕获方式是什么，如何把这些错误上报？</p>
+<h3 id="前端错误分类"><a href="#前端错误分类" class="headerlink" title="前端错误分类"></a>前端错误分类</h3><ul>
+<li>即时运行错误：代码错误</li>
+<li>资源加载错误</li>
+<li>接口错误<br>即时运行错误的捕获方式：</li>
+<li><code>try..catch</code></li>
+<li><code>window.onerror</code><br>资源加载错误的捕获方式：</li>
+<li><code>object.onerror</code></li>
+<li><code>performance.getEntries()</code></li>
+<li><code>addEventListener(&quot;error&quot;,function{}, true)</code> error事件捕获（资源加载错误不会冒泡，所以window.onerror不能捕获资源加载错误）。<br>接口错误捕获方式<br>所有http请求都是基于<code>xmlHttpRequest</code>或者<code>fetch</code>封装的。所以要捕获全局的接口错误，方法就是封装xmlHttpRequest或者fetch。<br>这个捕获可以用状态码作为出错条件处理<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// xmlHttpRequest</span></span><br><span class="line"><span class="keyword">if</span>(!<span class="built_in">window</span>.XMLHttpRequest) <span class="keyword">return</span>;</span><br><span class="line"><span class="keyword">var</span> xmlhttp = <span class="built_in">window</span>.XMLHttpRequest;</span><br><span class="line"><span class="keyword">var</span> _oldSend = xmlhttp.prototype.send;</span><br><span class="line"><span class="keyword">var</span> _handleEvent = <span class="function"><span class="keyword">function</span> (<span class="params">event</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (event &amp;&amp; event.currentTarget &amp;&amp; event.currentTarget.status !== <span class="number">200</span>) &#123;</span><br><span class="line">        <span class="comment">// 自定义错误上报 &#125;</span></span><br><span class="line">&#125;</span><br><span class="line">xmlhttp.prototype.send = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">this</span>[<span class="string">'addEventListener'</span>]) &#123;</span><br><span class="line">      <span class="keyword">this</span>[<span class="string">'addEventListener'</span>](<span class="string">'error'</span>, _handleEvent);</span><br><span class="line">      <span class="keyword">this</span>[<span class="string">'addEventListener'</span>](<span class="string">'load'</span>, _handleEvent);</span><br><span class="line">      <span class="keyword">this</span>[<span class="string">'addEventListener'</span>](<span class="string">'abort'</span>, _handleEvent);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">var</span> _oldStateChange = <span class="keyword">this</span>[<span class="string">'onreadystatechange'</span>];</span><br><span class="line">      <span class="keyword">this</span>[<span class="string">'onreadystatechange'</span>] = <span class="function"><span class="keyword">function</span> (<span class="params">event</span>) </span>&#123;</span><br><span class="line">          <span class="keyword">if</span> (<span class="keyword">this</span>.readyState === <span class="number">4</span>) &#123;</span><br><span class="line">              _handleEvent(event);</span><br><span class="line">          &#125;</span><br><span class="line">          _oldStateChange &amp;&amp; _oldStateChange.apply(<span class="keyword">this</span>, <span class="built_in">arguments</span>);</span><br><span class="line">      &#125;;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> _oldSend.apply(<span class="keyword">this</span>, <span class="built_in">arguments</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// fetch</span></span><br><span class="line"><span class="keyword">if</span>(!<span class="built_in">window</span>.fetch) <span class="keyword">return</span>;</span><br><span class="line">  <span class="keyword">let</span> _oldFetch = <span class="built_in">window</span>.fetch;</span><br><span class="line">  <span class="built_in">window</span>.fetch = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> _oldFetch.apply(<span class="keyword">this</span>, <span class="built_in">arguments</span>)</span><br><span class="line">    .then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">if</span> (!res.ok) &#123; <span class="comment">// True if status is HTTP 2xx</span></span><br><span class="line">          <span class="comment">// 上报错误</span></span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">return</span> res;</span><br><span class="line">    &#125;)</span><br><span class="line">    .catch(<span class="function"><span class="params">error</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="comment">// 上报错误</span></span><br><span class="line">      <span class="keyword">throw</span> error;  </span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+
+  </section>
+
+  <section class="post-comments">
+
+   <!--PC和WAP自适应版-->
+<div id="SOHUCS" sid="请将此处替换为配置SourceID的语句" ></div> 
+<script type="text/javascript"> 
+(function(){ 
+var appid = 'cytl2q04G'; 
+var conf = 'prod_c6e77c75d2d767714e129c11e500044d'; 
+var width = window.innerWidth || document.documentElement.clientWidth; 
+if (width < 960) { 
+window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
+    
+</section>
+
+
+</article>
+
+
+            <footer class="footer">
+
+    <span class="footer__copyright">&copy; 2017 | 由<a href="https://hexo.io/">Hexo</a>| 主题<a href="https://github.com/someus/huno">Huno</a></span>
+    
+</footer>
+        </div>
+    </div>
+
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+    
+
+    
+
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript"> 
+        $(document).ready(function(){
+            MathJax.Hub.Config({ 
+                tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
+            });
+        });
+    </script>
+
+
+    
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+</body>
+</html>
