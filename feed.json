@@ -1,0 +1,13 @@
+{
+    "version": "https://jsonfeed.org/version/1",
+    "title": "Ajiu9",
+    "home_page_url": "https://ajiu9.cn/",
+    "feed_url": "https://ajiu9.cn/feed.json",
+    "description": "Ajiu9' Blog",
+    "icon": "https://ajiu9.cn/avatar.png",
+    "author": {
+        "name": "Ajiu9",
+        "url": "https://ajiu9.cn"
+    },
+    "items": []
+}

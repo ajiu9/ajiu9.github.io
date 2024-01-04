@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Ajiu9</title>
+        <link>https://ajiu9.cn/</link>
+        <description>Ajiu9' Blog</description>
+        <lastBuildDate>Thu, 04 Jan 2024 11:04:01 GMT</lastBuildDate>
+        <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+        <generator>https://github.com/jpmonette/feed</generator>
+        <image>
+            <title>Ajiu9</title>
+            <url>https://ajiu9.cn/avatar.png</url>
+            <link>https://ajiu9.cn/</link>
+        </image>
+        <copyright>CC BY-NC-SA 4.0 2021 © Ajiu9</copyright>
+        <atom:link href="https://ajiu9.cn/feed.xml" rel="self" type="application/rss+xml"/>
+    </channel>
+</rss>
